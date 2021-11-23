@@ -1,1 +1,101 @@
 /* developer styles go here */
+:root{
+    --orange: #f07847;
+    --green: #199f6b;
+    --blue: #007ea7;
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    background-color: #feebdd;
+    text-align: center;
+}
+
+section{
+    margin: 4.8rem auto;
+    max-width: 70rem;
+    border: 0.1rem solid #6e3d08;
+    padding: 1rem;
+}
+
+h2{
+    margin-bottom: 2.4rem;
+}
+
+/*** CREATE AND SIZE BOXES ***/
+.box{
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid #111;
+}
+
+.box.orange{
+    background-color: var(--orange);
+}
+
+.box.green{
+    background-color: var(--green);
+}
+
+.box.blue{
+    background-color: var(--blue);
+}
+
+
+/*** RELATIVE ***/
+/* Keeps all of your elements within the document flow */
+.relative .box.orange{
+    position: relative;
+    bottom: 3rem;
+    /* moves 30px up from the bottom */
+}
+
+.relative .box.green{
+    position: relative;
+    top: 2rem;
+    /* moves 20px down from the top */
+    /* To remove spacing created by relative positioning (moving elements around using relative positioning) you ned to use a negative or positve margin */
+    margin-top: -2rem; /*brings the element back to its original spot, removes the extra spacing from when you moved it*/
+}
+
+.relative .box.blue{
+    position: relative;
+    left: 5rem;
+    /* moves 50px away from the left */
+}
+
+
+/*** ABSOLUTE ***/
+/* Absolute removes the element out of the workflow */
+.absolute .box.orange{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* removes it from inside the Absolute section and puts at the top left of the entire page */
+}
+
+
+/*** ABSOLUTE POSITIONED ITEMS WITHIN A RELATIVE PARENT ***/
+.relative2{
+    position: relative;
+}
+
+.relative2 .box.green{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* moves the box to an absolute position WITHIN the Relative2 section */
+}
+
+
+/*** FIXED ***/
+/* Similar to Absolute as the elements are removed from the document flow, but stay in the same position no matter where you scroll on the page */
+/* NOTE - you can have fixed containers with static elements within them. Ex. .fixed{} */
+.fixed .box.blue{
+    position: fixed;
+    left: 0;
+    top: 50%;
+    /* Stays on the middle-left of the screen no matter where you scroll */
+}
